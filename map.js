@@ -88,7 +88,16 @@ const doubleLettersOf = function (strings) {
 doubleLettersOf(["cat", "dog", "bat"]);
 
 // boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) { };
+
+const negateTheBoolean = function (boolean) {
+  return !boolean;
+};
+
+const negatedBooleansOf = function (booleans) {
+  return booleans.map(negateTheBoolean);
+};
+
+negatedBooleansOf([true, false, true]);
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
