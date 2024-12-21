@@ -44,9 +44,20 @@ const firstCharactersOf = function (strings) {
   return strings.map(getFirstCharacter);
 };
 
+firstCharactersOf(["apple", "banana", "kiwi"]);
+
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
-const truthValuesOf = function (numbers) { };
+
+const getTruthValues = function (number) {
+  return !(number === 0);
+};
+
+const truthValuesOf = function (numbers) {
+  return numbers.map(getTruthValues);
+};
+
+truthValuesOf([1,3,-2,0,1.4,3,-2,0,1,0]);
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
 const reversedStringsOf = function (strings) { };
