@@ -101,7 +101,16 @@ negatedBooleansOf([true, false, true]);
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
-const charCodesOf = function (strings) { };
+
+const getCharCode = function (string) {
+  return string.charCodeAt();
+};
+
+const charCodesOf = function (strings) {
+  return strings.map(getCharCode);
+};
+
+charCodesOf(["a", "b", "c"]);
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const domainNamesOf = function (emails) { };
