@@ -60,7 +60,16 @@ const truthValuesOf = function (numbers) {
 truthValuesOf([1,3,-2,0,1.4,3,-2,0,1,0]);
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { };
+
+const getReversedString = function (string) {
+  return [...string].reverse().join('');
+};
+
+const reversedStringsOf = function (strings) {
+  return strings.map(getReversedString);
+};
+
+reversedStringsOf(["hello", "world"]);
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 const doubleLettersOf = function (strings) { };
