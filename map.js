@@ -69,10 +69,23 @@ const reversedStringsOf = function (strings) {
   return strings.map(getReversedString);
 };
 
-reversedStringsOf(["hello", "world"]);
+reversedStringsOf(["hello", "world"]); 
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLettersOf = function (strings) { };
+
+const makeDouble = function (letter) {
+  return letter + letter;
+};
+
+const getDoubleLetters = function (string) {
+  return [...string].map(makeDouble).join('');
+};
+
+const doubleLettersOf = function (strings) {
+  return strings.map(getDoubleLetters);
+};
+
+doubleLettersOf(["cat", "dog", "bat"]);
 
 // boolean negation of [true, false, true] => [false, true, false]
 const negatedBooleansOf = function (booleans) { };
