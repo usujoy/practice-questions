@@ -57,7 +57,7 @@ const truthValuesOf = function (numbers) {
   return numbers.map(getTruthValues);
 };
 
-truthValuesOf([1,3,-2,0,1.4,3,-2,0,1,0]);
+truthValuesOf([1, 3, -2, 0, 1.4, 3, -2, 0, 1, 0]);
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
 
@@ -69,7 +69,7 @@ const reversedStringsOf = function (strings) {
   return strings.map(getReversedString);
 };
 
-reversedStringsOf(["hello", "world"]); 
+reversedStringsOf(["hello", "world"]);
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 
@@ -149,7 +149,16 @@ const joinedArraysOf = function (arrayOfArrays) {
 joinedArraysOf([["a", "b"], ["c", "d"]]);
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
-const repeatedStringsOf = function (strings) { };
+
+const repeatTheString = function (string) {
+  return string + string;
+};
+
+const repeatedStringsOf = function (strings) {
+  return strings.map(repeatTheString);
+};
+
+repeatedStringsOf(["hi", "bye"]);
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
 const countVowelsOf = function (strings) { };
