@@ -137,7 +137,16 @@ const splitWordsOf = function (strings) {
 splitWordsOf(["hello world", "goodbye moon"]);
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-const joinedArraysOf = function (arrayOfArrays) { };
+
+const joineTheArray = function (array) {
+  return array.join('');
+};
+
+const joinedArraysOf = function (arrayOfArrays) {
+  return arrayOfArrays.map(joineTheArray);
+};
+
+joinedArraysOf([["a", "b"], ["c", "d"]]);
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 const repeatedStringsOf = function (strings) { };
