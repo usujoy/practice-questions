@@ -266,7 +266,22 @@ const uniqueCharactersOf = function (strings) {
 uniqueCharactersOf(["apple", "banana", "grape"]);
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) { };
+
+const range = function (number) {
+  const numbers = [];
+
+  for (let i = 0; i < number; i++) {
+    numbers.push(i);
+  }
+
+  return numbers;
+};
+
+const rangesOf = function (numbers) {
+  return numbers.map(range)
+};
+
+rangesOf([3, 5, 2]);
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const capitalizedFirstLettersOf = function (strings) { };
