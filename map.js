@@ -296,14 +296,23 @@ const getCapitalizedFirstLetters = function (string) {
   return string.split(' ').map(makeFirstLetterCapital).join(' ');
 };
 
-const capitalizedFirstLettersOf = function (strings) { 
+const capitalizedFirstLettersOf = function (strings) {
   return strings.map(getCapitalizedFirstLetters);
 };
 
 capitalizedFirstLettersOf(["hello world", "goodbye moon"]);
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
-const wordLengthsOf = function (strings) { };
+
+const lengthOfWords = function (strings) {
+  return strings.map(getLengthOfString);
+};
+
+const wordLengthsOf = function (strings) {
+  return strings.map(lengthOfWords);
+};
+
+wordLengthsOf(["apple pie", "banana split"]);
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
 const flattenedArraysOf = function (arrays) { };
