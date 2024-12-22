@@ -488,25 +488,40 @@ splitFullNames([{ name: "Alice Smith" }, { name: "Bob Brown" }]);
 
 // normalize scores so they fall between 0 and 1 based on the max score from [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
 
-  const getMaxValue = function (currentMaxValue, element) {
-    return Math.max(currentMaxValue, element.score);
-  };
+const getMaxValue = function (currentMaxValue, element) {
+  return Math.max(currentMaxValue, element.score);
+};
 
-  const normalizeScoresBasedOnMaxScore = function (maxScore) {
-    return function (person) {
-      return person.score / maxScore;
-    }
+const normalizeScoresBasedOnMaxScore = function (maxScore) {
+  return function (person) {
+    return person.score / maxScore;
   }
+};
 
-  const normalizeScores = function (objects) {
-    const maxScore = objects.reduce(getMaxValue, 0);
-    return objects.map(normalizeScoresBasedOnMaxScore(maxScore));
-  };
+const normalizeScores = function (objects) {
+  const maxScore = objects.reduce(getMaxValue, 0);
+  return objects.map(normalizeScoresBasedOnMaxScore(maxScore));
+};
 
-  normalizeScores([{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }]);
+normalizeScores([{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }]);
 
 // calculate percentage contribution of each number in [10, 20, 30] (relative to the total sum) => [16.67, 33.33, 50]
-const percentageContributions = function (numbers) { };
+const getTotal = function (currentValue, element) {
+  return currentValue + element;
+};
+
+const getPercentage = function (total) {
+  return function (number) {
+    return (number / total) * 100;
+  }
+};
+
+const percentageContributions = function (numbers) {
+  const total = numbers.reduce(getTotal, 0);
+  return numbers.map(getPercentage(total)) 
+};
+
+percentageContributions([10, 20, 30]);
 
 // subtract the smallest number from each number in [3, 8, 1] => [2, 7, 0]
 const subtractMin = function (numbers) { };
