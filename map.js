@@ -305,7 +305,7 @@ capitalizedFirstLettersOf(["hello world", "goodbye moon"]);
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 
 const lengthOfWords = function (strings) {
-  return strings.map(getLengthOfString);
+  return strings.split(' ').map(getLengthOfString);
 };
 
 const wordLengthsOf = function (strings) {
