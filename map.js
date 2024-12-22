@@ -233,7 +233,16 @@ const cumulativeSumsOf = function (arrays) {
 cumulativeSumsOf([[1, 2, 3], [4, 5, 6]]);
 
 // reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
-const reversedWordsOf = function (strings) { };
+
+const reverseTheWords = function (strings) {
+  return strings.split(' ').map(getReversedString).join(' ');
+};
+
+const reversedWordsOf = function (strings) {
+  return strings.map(reverseTheWords);
+};
+
+reversedWordsOf(["hello world", "goodbye moon"]);
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
