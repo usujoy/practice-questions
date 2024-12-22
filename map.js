@@ -246,7 +246,24 @@ reversedWordsOf(["hello world", "goodbye moon"]);
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
-const uniqueCharactersOf = function (strings) { };
+
+const getUniqueChars = function (currentWord, element) {
+  if (currentWord.includes(element)) {
+    return currentWord;
+  }
+
+  return currentWord + element;
+};
+
+const uniqueCharsInString = function (string) {
+  return [...string].reduce(getUniqueChars, '');
+};
+
+const uniqueCharactersOf = function (strings) {
+  return strings.map(uniqueCharsInString);
+};
+
+uniqueCharactersOf(["apple", "banana", "grape"]);
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
 const rangesOf = function (numbers) { };
