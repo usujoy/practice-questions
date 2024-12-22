@@ -315,7 +315,16 @@ const wordLengthsOf = function (strings) {
 wordLengthsOf(["apple pie", "banana split"]);
 
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
-const flattenedArraysOf = function (arrays) { };
+
+const getFlattenedArray = function (element) {
+  return element.flatMap(function (element) {return element});
+};
+
+const flattenedArraysOf = function (arrays) {
+  return arrays.map(getFlattenedArray);
+};
+
+flattenedArraysOf([[1, [2, 3]], [4, [5, 6]]]);
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 
