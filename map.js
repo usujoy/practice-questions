@@ -184,13 +184,8 @@ countVowelsOf(["apple", "banana", "grape"]);
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 
-const getReversed = function (currentArray, element) {
-  currentArray.unshift(element);
-  return currentArray; 
-};
-
 const getReversedArray = function (array) {
-  return array.reduce(getReversed, []);
+  return array.reverse();
 };
 
 const reversedArraysOf = function (arrays) {
