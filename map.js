@@ -318,7 +318,16 @@ wordLengthsOf(["apple pie", "banana split"]);
 const flattenedArraysOf = function (arrays) { };
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) { };
+
+const getSortedWord = function (word) {
+  return word.split('').sort().join('');
+};
+
+const sortedLettersOf = function (strings) {
+  return strings.map(getSortedWord);
+};
+
+sortedLettersOf(["cat", "bat", "rat"]);
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
