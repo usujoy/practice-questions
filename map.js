@@ -391,7 +391,15 @@ const extractFlags = function (objects) {
 extractFlags([{ active: true }, { active: false }]);
 
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
-const fullNames = function (objects) { };
+const getFullName = function (names) {
+  return names.firstName + ' ' + names.lastName;
+};
+
+const fullNames = function (objects) {
+  return objects.map(getFullName);
+};
+
+fullNames([{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }]);
 
 // calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] => [20, 20]
 // (price * quantity)
