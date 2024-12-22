@@ -332,10 +332,7 @@ sortedLettersOf(["cat", "bat", "rat"]);
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 
 const getWrappedWords = function (string) {
-  const word = [string]
-  word.push(']')
-  word.unshift('[')
-  return word.join('');
+  return '[' + string + ']';
 };
 
 const wrappedStringsOf = function (strings) {
