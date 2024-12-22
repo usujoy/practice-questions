@@ -1,8 +1,20 @@
 // sumOf([1, 2, 3, 4]) => 10
-const sumOf = function (numbers) { }
+const sumOf = function (numbers) {
+  return numbers.reduce(function (x, y) {return x + y}, 0);
+};
 
 // productOf([1, 2, 3, 4]) => 24
-const productOf = function (numbers) { }
+const getProduct = function (currentValue, element) {
+  if (element === 0) {
+    return 0;
+  }
+
+  return currentValue * element;
+};
+
+const productOf = function (numbers) {
+  return numbers.reduce(getProduct, 0)
+};
 
 // averageOf([1, 2, 3, 4, 5]) => 3
 const averageOf = function (numbers) { }
