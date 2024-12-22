@@ -473,7 +473,11 @@ const extractScores = function (objects) {
 extractScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]);
 
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
-const keyValuePairs = function (objects) { };
+const keyValuePairs = function (objects) {
+  return objects.map(function (keyValuePair) {return [keyValuePair.key, keyValuePair.value]});
+};
+
+keyValuePairs([{ key: "a", value: 1 }, { key: "b", value: 2 }]);
 
 // split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
 const splitFullNames = function (objects) { };
