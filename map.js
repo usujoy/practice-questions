@@ -456,7 +456,7 @@ extractCoordinates([{ x: 1, y: 2 }, { x: 3, y: 4 }]);
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
 const getFullNameAndAge = function (person) {
-  return [getFullName(person), person.age]; 
+  return [getFullName(person), person.age];
 }
 
 const fullNameAndAge = function (objects) {
@@ -467,27 +467,43 @@ fullNameAndAge([{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName:
 
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
 const extractScores = function (objects) {
-  return objects.map(function (people) {return [people.scores.math, people.scores.english]});
+  return objects.map(function (people) { return [people.scores.math, people.scores.english] });
 };
 
 extractScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]);
 
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
 const keyValuePairs = function (objects) {
-  return objects.map(function (keyValuePair) {return [keyValuePair.key, keyValuePair.value]});
+  return objects.map(function (keyValuePair) { return [keyValuePair.key, keyValuePair.value] });
 };
 
 keyValuePairs([{ key: "a", value: 1 }, { key: "b", value: 2 }]);
 
 // split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
 const splitFullNames = function (objects) {
-  return objects.map(function (person) {return person.name.split(' ')});
+  return objects.map(function (person) { return person.name.split(' ') });
 };
 
 splitFullNames([{ name: "Alice Smith" }, { name: "Bob Brown" }]);
 
 // normalize scores so they fall between 0 and 1 based on the max score from [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
-const normalizeScores = function (objects) { };
+
+  const getMaxValue = function (currentMaxValue, element) {
+    return Math.max(currentMaxValue, element.score);
+  };
+
+  const normalizeScoresBasedOnMaxScore = function (maxScore) {
+    return function (person) {
+      return person.score / maxScore;
+    }
+  }
+
+  const normalizeScores = function (objects) {
+    const maxScore = objects.reduce(getMaxValue, 0);
+    return objects.map(normalizeScoresBasedOnMaxScore(maxScore));
+  };
+
+  normalizeScores([{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }]);
 
 // calculate percentage contribution of each number in [10, 20, 30] (relative to the total sum) => [16.67, 33.33, 50]
 const percentageContributions = function (numbers) { };
