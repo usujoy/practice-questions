@@ -1,6 +1,6 @@
 // sumOf([1, 2, 3, 4]) => 10
 const sumOf = function (numbers) {
-  return numbers.reduce(function (x, y) {return x + y}, 0);
+  return numbers.reduce(function (x, y) { return x + y }, 0);
 };
 
 // productOf([1, 2, 3, 4]) => 24
@@ -20,13 +20,27 @@ const productOf = function (numbers) {
 const averageOf = function (numbers) { }
 
 // minOf([3, 1, 4, 1, 5, 9, 2]) => 1
-const minOf = function (numbers) { }
+const findMinimum = function (currentValue, number) {
+  return Math.min(currentValue, number);
+};
+
+const minOf = function (numbers) {
+  return numbers.reduce(findMinimum, numbers[0]);
+};
 
 // maxOf([3, 1, 4, 1, 5, 9, 2]) => 9
-const maxOf = function (numbers) { }
+const findMaximum = function (currentValue, number) {
+  return Math.max(currentValue, number);
+};
 
-// sumPositiveNumbers([1, -2, 3, -4]) => 4
-const sumPositiveNumbers = function (numbers) { }
+const maxOf = function (numbers) {
+  return numbers.reduce(findMaximum, numbers[0]);
+};
+
+// sumPositiveNumbers([1, -2, 3, -4])  => 4
+const sumPositiveNumbers = function (numbers) {
+  return numbers.filter(function (x) { return x > 0 }).reduce(function (x, y) {return x + y}, 0);
+};
 
 // sumOfSquares([1, 2, 3, 4]) => 30
 const sumOfSquares = function (numbers) { }
