@@ -161,10 +161,43 @@ const repeatedStringsOf = function (strings) {
 repeatedStringsOf(["hi", "bye"]);
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-const countVowelsOf = function (strings) { };
+
+const vowelCount = function (currentCount, element) {
+  const vowels = 'aeiou';
+
+  if (vowels.includes(element)) {
+    return currentCount + 1;
+  }
+
+  return currentCount;
+};
+
+const getVowelCount = function (string) {
+  return [...string].reduce(vowelCount, 0);
+};
+
+const countVowelsOf = function (strings) {
+  return strings.map(getVowelCount)
+};
+
+countVowelsOf(["apple", "banana", "grape"]);
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-const reversedArraysOf = function (arrays) { };
+
+const getReversed = function (currentArray, element) {
+  currentArray.unshift(element);
+  return currentArray; 
+};
+
+const getReversedArray = function (array) {
+  return array.reduce(getReversed, []);
+};
+
+const reversedArraysOf = function (arrays) {
+  return arrays.map(getReversedArray);
+};
+
+reversedArraysOf([[1, 2, 3], [4, 5, 6]]);
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const withoutVowelsOf = function (strings) { };
