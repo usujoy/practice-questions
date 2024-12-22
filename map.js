@@ -422,7 +422,19 @@ const isAdult = function (objects) {
 isAdult([{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }]);
 
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
-const abbreviations = function (objects) { };
+const firstLetterOfWords = function (word) {
+  return word[0];
+};
+
+const getAbbreviations = function (details) {
+  return details.city.split(' ').map(firstLetterOfWords).join('') + ', ' + details.country;
+};
+
+const abbreviations = function (objects) {
+  return objects.map(getAbbreviations);
+};
+
+abbreviations([{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }]);
 
 // extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
 const mathScores = function (objects) { };
