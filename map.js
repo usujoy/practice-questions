@@ -415,7 +415,11 @@ totalPrices([{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }]);
 
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
-const isAdult = function (objects) { };
+const isAdult = function (objects) {
+  return objects.map(function (person) {return person.age >= 18});
+};
+
+isAdult([{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }]);
 
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
 const abbreviations = function (objects) { };
