@@ -1,30 +1,44 @@
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 const isEven = function (number) {
   return (number & 1) === 0;
-}
+};
+
 const filterEvenNumbers = function (numbers) {
   return numbers.filter(isEven);
 };
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
-const isGreaterThan = function (length) {
+const isLengthGreaterThan = function (length) {
   return function (word) {
     return word.length > length;
   }
 };
 
 const filterLongWords = function (words) {
-  return words.filter(isGreaterThan(5))
+  return words.filter(isLengthGreaterThan(5))
 };
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAdults = function (people) { };
+const filterAdults = function (people) {
+  return people.filter(function (person) { return person.age > 30 });
+};
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const filterActiveUsers = function (users) {
+  return users.filter(function (user) { return user.active });
+};
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
-const filterNumbersGreaterThanTen = function (numbers) { };
+
+const isGreaterThan = function (number) {
+  return function (element) {
+    return element > number;
+  }
+};
+
+const filterNumbersGreaterThanTen = function (numbers) {
+  return numbers.filter(isGreaterThan(10));
+};
 
 // books with more than 200 pages [{title: "Book 1", pages: 150}, {title: "Book 2", pages: 250}] => [{title: "Book 2", pages: 250}]
 const filterLongBooks = function (books) { };
