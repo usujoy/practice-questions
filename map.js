@@ -365,13 +365,30 @@ const extractAges = function (objects) {
 extractAges([{ age: 25 }, { age: 30 }]);
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
-const firstLettersOfNames = function (objects) { };
+const firstLettersOfNames = function (objects) {
+  return objects.map(function (persons) {return persons.name[0]});
+};
+
+firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]);
 
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
-const calculateAreas = function (rectangles) { };
+
+const findAreaOfRectangle = function (sides) {
+  return sides.width * sides.height;
+};
+
+const calculateAreas = function (rectangles) {
+  return rectangles.map(findAreaOfRectangle);
+};
+
+calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]);
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
-const extractFlags = function (objects) { };
+const extractFlags = function (objects) {
+  return objects.map(function (flags) {return flags.active});
+};
+
+extractFlags([{ active: true }, { active: false }]);
 
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (objects) { };
