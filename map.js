@@ -444,7 +444,7 @@ const mathScores = function (objects) {
 mathScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]);
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
-const extractionOfCoordinates= function (coordinates) {
+const extractionOfCoordinates = function (coordinates) {
   return [coordinates.x, coordinates.y];
 };
 
@@ -455,7 +455,15 @@ const extractCoordinates = function (objects) {
 extractCoordinates([{ x: 1, y: 2 }, { x: 3, y: 4 }]);
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
-const fullNameAndAge = function (objects) { };
+const getFullNameAndAge = function (person) {
+  return [getFullName(person), person.age]; 
+}
+
+const fullNameAndAge = function (objects) {
+  return objects.map(getFullNameAndAge);
+};
+
+fullNameAndAge([{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }]);
 
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
 const extractScores = function (objects) { };
