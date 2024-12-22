@@ -317,7 +317,7 @@ wordLengthsOf(["apple pie", "banana split"]);
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
 
 const getFlattenedArray = function (element) {
-  return element.flatMap(function (element) {return element});
+  return element.flatMap(function (element) { return element });
 };
 
 const flattenedArraysOf = function (arrays) {
@@ -352,21 +352,21 @@ wrappedStringsOf(["apple", "banana"]);
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
 const extractNames = function (objects) {
-  return objects.map(function (persons) {return persons.name});
+  return objects.map(function (persons) { return persons.name });
 };
 
 extractNames([{ name: "Alice" }, { name: "Bob" }]);
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAges = function (objects) {
-  return objects.map(function (persons) {return persons.age});
+  return objects.map(function (persons) { return persons.age });
 };
 
 extractAges([{ age: 25 }, { age: 30 }]);
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
 const firstLettersOfNames = function (objects) {
-  return objects.map(function (persons) {return persons.name[0]});
+  return objects.map(function (persons) { return persons.name[0] });
 };
 
 firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]);
@@ -385,7 +385,7 @@ calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]);
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
 const extractFlags = function (objects) {
-  return objects.map(function (flags) {return flags.active});
+  return objects.map(function (flags) { return flags.active });
 };
 
 extractFlags([{ active: true }, { active: false }]);
@@ -416,7 +416,7 @@ totalPrices([{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }]);
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
 const isAdult = function (objects) {
-  return objects.map(function (person) {return person.age >= 18});
+  return objects.map(function (person) { return person.age >= 18 });
 };
 
 isAdult([{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }]);
@@ -438,13 +438,21 @@ abbreviations([{ city: "New York", country: "USA" }, { city: "Los Angeles", coun
 
 // extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
 const mathScores = function (objects) {
-  return objects.map(function (person) {return person.scores.math});
+  return objects.map(function (person) { return person.scores.math });
 };
 
 mathScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]);
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
-const extractCoordinates = function (objects) { };
+const extractionOfCoordinates= function (coordinates) {
+  return [coordinates.x, coordinates.y];
+};
+
+const extractCoordinates = function (objects) {
+  return objects.map(extractionOfCoordinates);
+};
+
+extractCoordinates([{ x: 1, y: 2 }, { x: 3, y: 4 }]);
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
 const fullNameAndAge = function (objects) { };
