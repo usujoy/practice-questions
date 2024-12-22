@@ -73,12 +73,8 @@ reversedStringsOf(["hello", "world"]);
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 
-const makeDouble = function (letter) {
-  return letter + letter;
-};
-
 const getDoubleLetters = function (string) {
-  return [...string].map(makeDouble).join('');
+  return [...string].map(function(letter) {return letter.repeat(2)}).join('');
 };
 
 const doubleLettersOf = function (strings) {
