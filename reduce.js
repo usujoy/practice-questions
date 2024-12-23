@@ -109,10 +109,19 @@ const longestWord = function (words) {
   return words.reduce(getLongestWord, 0);
 };
 
-console.log(longestWord(["apple", "banana", "cherry", "kiwi"]));
+// console.log(longestWord(["apple", "banana", "cherry", "kiwi"]));
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
-const shortestWord = function (words) { }
+const shortestWordsOf = function (word1, word2) {
+  return (word1.length < word2.length) ? word1 : word2;
+};
+
+const shortestWord = function (words) {
+  return words.reduce(shortestWordsOf, words[0]);
+};
+
+// console.log(shortestWord(["apple", "banana", "cherry", "kiwi"]));
+
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
 const joinWithComma = function (words) { }
