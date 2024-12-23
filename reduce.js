@@ -8,6 +8,10 @@ const compliment = function (f) {
   }
 };
 
+const isPositive = function (number) {
+  return number > 0;
+};
+
 // sumOf([1, 2, 3, 4]) => 10
 const sumOf = function (numbers) {
   return numbers.reduce(sum, 0);
@@ -27,7 +31,9 @@ const productOf = function (numbers) {
 };
 
 // averageOf([1, 2, 3, 4, 5]) => 3
-const averageOf = function (numbers) { }
+const averageOf = function (numbers) {
+  return (numbers.reduce(sum, 0)) / numbers.length;
+};
 
 // minOf([3, 1, 4, 1, 5, 9, 2]) => 1
 const findMinimum = function (currentValue, number) {
@@ -67,7 +73,11 @@ const sumOfOddNumbers = function (numbers) {
 };
 
 // countNegativeNumbers([1, -2, 3, -4]) => 2
-const countNegativeNumbers = function (numbers) { }
+const isNotPositive = compliment(isPositive);
+ 
+const countNegativeNumbers = function (numbers) { 
+  return numbers.filter(isNotPositive).length
+};
 
 // findSumOfEvenSquares([1, 2, 3, 4]) => 20
 const findSumOfEvenSquares = function (numbers) { }
