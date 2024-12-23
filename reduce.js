@@ -2,9 +2,15 @@ const sum = function (number1, number2) {
   return number1 + number2;
 };
 
+const compliment = function (f) {
+  return function (...args) {
+    return !f(...args)
+  }
+};
+
 // sumOf([1, 2, 3, 4]) => 10
 const sumOf = function (numbers) {
-  return numbers.reduce(function (x, y) { return x + y }, 0);
+  return numbers.reduce(sum, 0);
 };
 
 // productOf([1, 2, 3, 4]) => 24
@@ -43,12 +49,12 @@ const maxOf = function (numbers) {
 
 // sumPositiveNumbers([1, -2, 3, -4])  => 4
 const sumPositiveNumbers = function (numbers) {
-  return numbers.filter(function (x) { return x > 0 }).reduce(function (x, y) { return x + y }, 0);
+  return numbers.filter(function (x) { return x > 0 }).reduce(sum, 0);
 };
 
 // sumOfSquares([1, 2, 3, 4]) => 30
 const sumOfSquares = function (numbers) {
-  return numbers.map(function (x) { return x ** 2 }).reduce(function (x, y) { return x + y }, 0);
+  return numbers.map(function (x) { return x ** 2 }).reduce(sum, 0);
 };
 
 // sumOfOddNumbers([1, 2, 3, 4, 5]) => 9
@@ -57,8 +63,8 @@ const isOdd = function (number) {
 };
 
 const sumOfOddNumbers = function (numbers) {
-  return numbers.filter(isOdd).reduce(function (x, y) { return x + y }, 0);
-}
+  return numbers.filter(isOdd).reduce(sum, 0);
+};
 
 // countNegativeNumbers([1, -2, 3, -4]) => 2
 const countNegativeNumbers = function (numbers) { }
