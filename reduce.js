@@ -91,10 +91,25 @@ const findSumOfEvenSquares = function (numbers) {
 };
 
 // concatenateWords(["hello", "world"]) => "helloworld"
-const concatenateWords = function (words) { }
+const concat = function (word1, word2) {
+  return word1 + word2;
+};
+
+const concatenateWords = function (words) {
+  return words.reduce(concat, '');
+};
 
 // longestWord(["apple", "banana", "cherry", "kiwi"]) => "banana"
-const longestWord = function (words) { }
+
+const getLongestWord = function (currentLongWord, element) {
+  return (currentLongWord.length >= element.length) ? currentLongWord : element
+};
+
+const longestWord = function (words) {
+  return words.reduce(getLongestWord, 0);
+};
+
+console.log(longestWord(["apple", "banana", "cherry", "kiwi"]));
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
 const shortestWord = function (words) { }
