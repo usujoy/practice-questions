@@ -1,47 +1,31 @@
 // squares of [1, 2, 3] => [1, 4, 9]
 
-const getSquareOf = function (number) {
-  return number ** 2;
-};
-
 const squaresOf = function (numbers) {
-  return numbers.map(getSquareOf);
+  return numbers.map((number) => number ** 2);
 };
 
 squaresOf([1, 2, 3]);
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
 
-const getLengthOfString = function (string) {
-  return string.length;
-};
-
 const lengthsOf = function (strings) {
-  return strings.map(getLengthOfString);
+  return strings.map((string) => string.length);
 };
 
 lengthsOf(["apple", "banana", "kiwi"]);
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
 
-const convertToUpperCase = function (string) {
-  return string.toUpperCase();
-};
-
 const uppercaseOf = function (strings) {
-  return strings.map(convertToUpperCase);
+  return strings.map((word) => word.toUpperCase());
 };
 
 uppercaseOf(["hello", "world"]);
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
 
-const getFirstCharacter = function (string) {
-  return string[0];
-};
-
 const firstCharactersOf = function (strings) {
-  return strings.map(getFirstCharacter);
+  return strings.map((word) => word[0]);
 };
 
 firstCharactersOf(["apple", "banana", "kiwi"]);
@@ -49,12 +33,8 @@ firstCharactersOf(["apple", "banana", "kiwi"]);
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
 
-const getTruthValues = function (number) {
-  return !(number === 0);
-};
-
 const truthValuesOf = function (numbers) {
-  return numbers.map(getTruthValues);
+  return numbers.map((number) => number !== 0);
 };
 
 truthValuesOf([1, 3, -2, 0, 1.4, 3, -2, 0, 1, 0]);
