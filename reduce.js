@@ -74,13 +74,21 @@ const sumOfOddNumbers = function (numbers) {
 
 // countNegativeNumbers([1, -2, 3, -4]) => 2
 const isNotPositive = compliment(isPositive);
- 
-const countNegativeNumbers = function (numbers) { 
+
+const countNegativeNumbers = function (numbers) {
   return numbers.filter(isNotPositive).length
 };
 
 // findSumOfEvenSquares([1, 2, 3, 4]) => 20
-const findSumOfEvenSquares = function (numbers) { }
+const getSquareOf = function (number) {
+  return number ** 2;
+};
+
+const isEven = compliment(isOdd);
+
+const findSumOfEvenSquares = function (numbers) {
+  return numbers.filter(isEven).map(getSquareOf).reduce(sum, 0);
+};
 
 // concatenateWords(["hello", "world"]) => "helloworld"
 const concatenateWords = function (words) { }
